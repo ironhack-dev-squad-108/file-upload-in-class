@@ -1,0 +1,17 @@
+<section>
+  <h2>Upload your photo</h2>
+  {{!-- enctype="multipart/form-data" is mandatory when you send a file  --}}
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    Name of the file: <input type="text" name="name"> <br>
+    File: <input type="file" name="photo"> <br>
+    <input type="submit" value="Save">
+  </form>
+</section>
+
+<section>
+  {{#each pictures}}
+    <hr>
+    <h3>{{ this.name }}</h3>
+    <img src="{{ this.path }}" alt="{{ this.originalName }}" />
+  {{/each}}
+</section>
